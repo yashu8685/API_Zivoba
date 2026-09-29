@@ -6,9 +6,9 @@ import { workspaceRoleSchema } from "./enums.validator.js";
 const emailSchema = z.string().trim().toLowerCase().email().max(255);
 const tokenSchema = z.string().trim().min(1).max(512);
 
-// POST /workspaces/:id/invitations — client sends email + role only.
+// POST /boards/:id/invitations — client sends email + role only, board from path.
 export const sendInvitationSchema = z.object({
-  workspaceId: z.number().int().positive(),
+  boardId: z.number().int().positive(),
   email: emailSchema,
   role: workspaceRoleSchema.default("member"),
 });

@@ -1,17 +1,19 @@
 import { pgTable, serial, integer, varchar, text, timestamp, index } from "drizzle-orm/pg-core";
 import type { InferSelectModel, InferInsertModel } from "drizzle-orm";
-import { workspaces } from "./workspaces.js";
+import { boards } from "./boards.js";
 import { users } from "./users.js";
 import { workspaceRoleEnum } from "./enums.js";
 
-// Ephemeral: hard delete once accepted/expired
+// Ephemeral: hard delete once accepted/expired.
+// Board-level: superadmin invites a user to a board; accepting adds a
+// board_members row (and the workspace roster via workspace_members).
 export const invitations = pgTable(
   "invitations",
   {
     id: serial("id").primaryKey(),
-    workspaceId: integer("workspace_id")
+    boardId: integer("board_id")
       .notNull()
-      .references(() => workspaces.id, { onDelete: "cascade" }),
+      .references(() => boards.id, { onDelete: "cascade" }),
     email: varchar("email", { length: 255 }).notNull(),
     role: workspaceRoleEnum("role").notNull().default("member"),
     token: text("token").notNull().unique(),

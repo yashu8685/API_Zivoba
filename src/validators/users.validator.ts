@@ -55,8 +55,14 @@ export const changePasswordSchema = z.object({
   newPassword: passwordSchema,
 });
 
+// PATCH /users/:id/password (superadmin reset) — no currentPassword needed.
+export const adminResetPasswordSchema = z.object({
+  newPassword: passwordSchema,
+});
+
 export type RegisterInput = z.infer<typeof registerSchema>;
 export type LoginInput = z.infer<typeof loginSchema>;
 export type CreateUserInput = z.infer<typeof createUserSchema>;
 export type UpdateUserInput = z.infer<typeof updateUserSchema>;
 export type ChangePasswordInput = z.infer<typeof changePasswordSchema>;
+export type AdminResetPasswordInput = z.infer<typeof adminResetPasswordSchema>;

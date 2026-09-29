@@ -39,7 +39,6 @@ export const workspacesRelations = relations(workspaces, ({ one, many }) => ({
   members: many(workspaceMembers),
   boards: many(boards),
   labels: many(labels),
-  invitations: many(invitations),
 }));
 
 export const workspaceMembersRelations = relations(workspaceMembers, ({ one }) => ({
@@ -52,6 +51,7 @@ export const boardsRelations = relations(boards, ({ one, many }) => ({
   creator: one(users, { fields: [boards.createdBy], references: [users.id] }),
   members: many(boardMembers),
   lists: many(lists),
+  invitations: many(invitations),
 }));
 
 export const boardMembersRelations = relations(boardMembers, ({ one }) => ({
@@ -105,7 +105,7 @@ export const notificationsRelations = relations(notifications, ({ one }) => ({
 }));
 
 export const invitationsRelations = relations(invitations, ({ one }) => ({
-  workspace: one(workspaces, { fields: [invitations.workspaceId], references: [workspaces.id] }),
+  board: one(boards, { fields: [invitations.boardId], references: [boards.id] }),
   inviter: one(users, { fields: [invitations.invitedBy], references: [users.id] }),
 }));
 
