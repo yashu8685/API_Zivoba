@@ -8,6 +8,34 @@
       "when": 1790081230638,
       "tag": "0000_yielding_nebula",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1790658414264,
+      "tag": "0001_wonderful_thanos",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1790676170252,
+      "tag": "0002_grey_shadowcat",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1790746769973,
+      "tag": "0003_perpetual_black_knight",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1790761189046,
+      "tag": "0004_black_king_cobra",
+      "breakpoints": true
     }
   ]
 }

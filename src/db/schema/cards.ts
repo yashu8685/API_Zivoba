@@ -11,6 +11,8 @@ export const cards = pgTable(
     listId: integer("list_id")
       .notNull()
       .references(() => lists.id, { onDelete: "cascade" }),
+      assigneeId: integer("assignee_id")
+  .references(() => users.id, { onDelete: "set null" }),
     title: varchar("title", { length: 255 }).notNull(),
     // Separate column; app generates from title on create.
     slug: varchar("slug", { length: 255 }).notNull(),

@@ -19,3 +19,4 @@ export * from "./password_reset_tokens.js";
 export * from "./activity_log.js";
 export * from "./user_preferences.js";
 export * from "./relations.js";
+export * from "./feedback.js";

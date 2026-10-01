@@ -1,5 +1,3 @@
-// Validators for boards table (src/db/schema/boards.ts).
-// createdBy / createdAt / updatedAt / deletedAt are server-generated.
 import { z } from "zod";
 import { createSlug } from "./slug.validator.js";
 

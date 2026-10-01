@@ -36,10 +36,12 @@
   "dependencies": {
     "@hono/node-server": "^2.1.1",
     "@hono/zod-validator": "^0.9.1",
+    "argon2": "^0.45.1",
     "dotenv": "^17.4.2",
     "drizzle-orm": "^0.45.3",
     "drizzle-zod": "^0.8.3",
     "hono": "^4.13.8",
+    "jose": "^6.2.12",
     "pg": "^8.23.0",
     "postgres": "^3.4.9",
     "zod": "^4.6.5"

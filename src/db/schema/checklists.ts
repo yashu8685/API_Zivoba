@@ -1,4 +1,4 @@
-import { pgTable, serial, integer, varchar, timestamp, index } from "drizzle-orm/pg-core";
+import { pgTable, serial, integer, varchar, timestamp,boolean, index } from "drizzle-orm/pg-core";
 import type { InferSelectModel, InferInsertModel } from "drizzle-orm";
 import { cards } from "./cards.js";
 
@@ -14,6 +14,10 @@ export const checklists = pgTable(
     // Separate column; app generates from title on create.
     slug: varchar("slug", { length: 150 }).notNull(),
     position: integer("position").notNull().default(0),
+    isCompleted: boolean("is_completed")
+  .notNull()
+  .default(false),
+
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
     updatedAt: timestamp("updated_at", { withTimezone: true })
       .notNull()
